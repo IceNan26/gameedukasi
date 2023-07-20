@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Home</title>
+</head>
+<body>
+    <h1 style="text-align: center;" class="mb-4 mb-3">Web Game Edukasi</h1>
+    <div class="container">
+        <% if(success.length > 0){ %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Sukses!</strong> <%= success %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+       <% } %>
+        <form action="/api/postDataWeb" method="post">
+            <div class="mb-3">
+                <label for="" class="form-label">id Soal</label>
+                <input type="text" class="form-control" placeholder="Id Soal">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Pertanyaan </label>
+                <input type="text" class="form-control" placeholder="Pertanyaan " name="questions">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Opsi Jawaban Pertama     : </label>
+                <input type="text" class="form-control" placeholder="Masukkan Opsi Jawaban Pertama" name="a1">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Opsi Jawaban Kedua     : </label>
+                <input type="text" class="form-control" placeholder="Masukkan Opsi Jawaban Kedua" name="a2">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Opsi Jawaban Ketiga     : </label>
+                <input type="text" class="form-control" placeholder="Masukkan Opsi Jawaban Ketiga" name="a3">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Opsi Jawaban Keempat     : </label>
+                <input type="text" class="form-control" placeholder="Masukkan Opsi Jawaban Keempat" name="a4">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Jawaban Benar     :  </label>
+                <input type="text" class="form-control" placeholder="Masukkan Jawaban Benar" name="correct">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <div class="container mt-5">
+        <h1 style="text-align: center;">Data Soal</h1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pertanyaan</th>
+                <th scope="col">Kunci Jawaban</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% for(let i = 0 ; i < data.length ; i++) {%>
+                    <tr>
+                        <th scope="row"><%= i + 1 %></th>
+                        <td><%= data[i].questions %></td>
+                        <td><%= data[i].correct%></td>
+                        <td>
+                            <form method="post" action="/home/delete/soal/<%= data[i].idSoal %>?_method=DELETE">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <%}%>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

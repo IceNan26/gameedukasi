@@ -1,0 +1,30 @@
+# Node.js & Express
+node_modules/
+dist/
+
+# Logs
+logs
+*.log
+
+# Environment variables
+.env
+
+# Dependencies
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor-specific
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

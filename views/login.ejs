@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container-fluid loginCard">
+        <div class="card" style="width: 24rem; height:">
+            <div class="card-body">
+                <% if(success.length > 0){ %>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Sukses!</strong> <%= success %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+               <% } %>
+                <% if(error.length > 0){ %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Oops!</strong> <%=error%>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+               <% } %>
+              <h5 class="card-title text-center mb-3">Login</h5>
+              <form action="/login" method="post">
+                  <!-- Email input -->
+                  <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example1">Username</label>
+                    <input type="text" id="form2Example1" class="form-control" name="username"/>
+                  </div>
+                
+                  <!-- Password input -->
+                  <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example2">Password</label>
+                    <input type="password" id="form2Example2" class="form-control" name="password"/>
+                  </div>               
+                  </div>
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block mb-5">Sign in</button>
+                </form>
+            </div>
+          </div>
+    </div>
+      <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
