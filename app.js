@@ -28,6 +28,6 @@ app.use("/home", require("./routes/homeRoutes"))
 app.use("/api", require("./routes/apiRoutes"))
 
 
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
