@@ -25,8 +25,8 @@ router.post("/postDataWeb", async (req,res) => {
         req.flash("success", "data berhasil ditambahkan")
         res.redirect("/home")
     } catch (error) {
-        console.error(error)
-        res.redirect("/")
+        req.flash("error", error.sqlMessage)
+        res.redirect("/home")
     }
 })
 

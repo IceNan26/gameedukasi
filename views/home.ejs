@@ -15,6 +15,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
        <% } %>
+        <% if(error.length > 0){ %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Oops!</strong> <%= error %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+       <% } %>
         <form action="/api/postDataWeb" method="post">
             <div class="mb-3">
                 <label for="" class="form-label">id Soal</label>

@@ -9,7 +9,8 @@ router.get("/", async (req,res) => {
     const parsedQuestion = JSON.parse(question);
     res.render("home",{
         data : parsedQuestion,
-        success: req.flash("success")
+        success: req.flash("success"),
+        error: req.flash("error")
     })
 })
 
