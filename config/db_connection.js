@@ -1,8 +1,9 @@
 const Sequelize = require('sequelize');
 
 // Create a new Sequelize instance
-const sequelize = new Sequelize('gameedukasi', 'root', '', {
-  host: 'localhost',
+const sequelize = new Sequelize('railway', 'root', 'mEnOxBpXX1KRj1I9cU35', {
+  host: 'containers-us-west-39.railway.app',
+  port: 6161,
   dialect: 'mysql',
 });
 
