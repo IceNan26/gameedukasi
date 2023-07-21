@@ -33,6 +33,7 @@ router.post("/postDataWeb", async (req,res) => {
 router.post("/postScore", async (req,res) => {
     try {
         const {namaSiswa, score} = req.body;
+        console.log(req.body)
         if(!namaSiswa){
             const newSiswa = Siswa.build({
                 namaSiswa: "-",
