@@ -1,20 +1,16 @@
-const Sequelize = require('sequelize');
+const mysql = require('mysql2/promise');
 
-// Create a new Sequelize instance
-const sequelize = new Sequelize('railway', 'root', 'mEnOxBpXX1KRj1I9cU35', {
-  host: 'containers-us-west-39.railway.app',
-  port: 6161,
-  dialect: 'mysql',
+const pool = mysql.createPool({
+  host: 'containers-us-west-39.railway.app', // Hostname or IP address without the port
+  port: 6161, // Port number of the MySQL server
+  user: 'root',
+  password: 'mEnOxBpXX1KRj1I9cU35',
+  database: 'railway',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
-// Test the database connection
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connected to the database');
-  })
-  .catch((error) => {
-    console.error('Error connecting to the database: ' + error);
-  });
+const connection = pool.getConnection()
 
-module.exports = sequelize;
+module.exports = pool;
