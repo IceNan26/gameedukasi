@@ -4,9 +4,10 @@ const pool = require("../config/db_connection");
 router.get("/getData", async (req, res) => {
   try {
     const data = await pool.query("SELECT * FROM questions");
+    console.log(data[0])
     res.status(200).json({
       statusCode: 200,
-      data,
+      data : data[0],
     });
   } catch (error) {
     res.send(error);
